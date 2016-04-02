@@ -14,15 +14,39 @@
     bottom: 0;
   }
 
-  .parallax__layer--base {
+  .parallax__layer--one {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    color: black;
   }
 
-  .parallax__layer--back {
+#one {
+  font-size: 40px;
+}
+
+  .parallax__layer--two {
     -webkit-transform: translateZ(-1px);
-    transform: translateZ(-1px) scale(2);
+    transform: translateZ(-1px) scale(1);
+    background-color: white;
   }
+
+#two {
+  font-size: 70px;
+}
+  .parallax__layer--three {
+  transform: translateZ(-3px) scale(1);
+}
+
+#three {
+  font-size: 100px;
+}
+  .parallax__layer--four {
+  transform: translateZ(-6px) scale(1);
+}
+
+#four {
+  font-size: 200px;
+}
 
 
   /* demo styles
