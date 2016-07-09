@@ -75,7 +75,8 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
+        <h1 className="hateReact">Nawascript.com</h1>
+        <h2>Type name and comment below and press post</h2>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
