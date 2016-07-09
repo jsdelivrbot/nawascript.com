@@ -1,2 +1,3 @@
-#Parallax effect
-This is where I will be using nawascript.com to practice the parallax effect.
+#React App
+This is a basic react app.
+Check it out at nawascript.com
