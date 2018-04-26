@@ -44,9 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	__webpack_require__(1);
-	module.exports = __webpack_require__(180);
+	module.exports = __webpack_require__(1);
 
 
 /***/ }),
@@ -94,6 +92,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var API_KEY = "AIzaSyB2tAzw4zjNOY0LBfL_PpqPgariWzZJFhE";
+	var base_url = 'https://od-api.oxforddictionaries.com/api/v1';
+	var app_id = '4b0a4c11';
+	var app_keys = 'bbe830e2e1343fab34e3426d54422a1f';
+
+	console.log({ base_url: base_url });
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -103,44 +106,36 @@
 
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-	    _this.state = {
-	      videos: [],
-	      selectedVideo: null
-	    };
-
-	    _this.videoSearch('surfboards');
-	    return _this;
-	  }
-
-	  _createClass(App, [{
-	    key: 'videoSearch',
-	    value: function videoSearch(term) {
-	      var _this2 = this;
-
+	    _this.videoSearch = function (term) {
 	      (0, _youtubeApiSearch2.default)({ key: API_KEY, term: term }, function (videos) {
-	        _this2.setState({
+	        _this.setState({
 	          videos: videos,
 	          selectedVideo: videos[0]
 	        });
 	      });
-	    }
-	  }, {
+	    };
+
+	    _this.state = {
+	      videos: [],
+	      selectedVideo: null
+	    };
+	    _this.videoSearch('cryptocurrency');
+	    return _this;
+	  }
+
+	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      var _this3 = this;
-
-	      var videoSearch = _lodash2.default.debounce(function (term) {
-	        _this3.videoSearch(term);
-	      }, 200);
+	      var _this2 = this;
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_search_bar2.default, { onSearchTermChange: videoSearch }),
+	        _react2.default.createElement(_search_bar2.default, { onSearchTermChange: this.videoSearch }),
 	        _react2.default.createElement(_video_detail2.default, { video: this.state.selectedVideo }),
 	        _react2.default.createElement(_video_list2.default, {
 	          onVideoSelect: function onVideoSelect(selectedVideo) {
-	            return _this3.setState({ selectedVideo: selectedVideo });
+	            return _this2.setState({ selectedVideo: selectedVideo });
 	          },
 	          videos: this.state.videos })
 	      );
@@ -33376,12 +33371,6 @@
 	};
 
 	exports.default = VideoDetail;
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports) {
-
-	"use strict";
 
 /***/ })
 /******/ ]);
